@@ -27,7 +27,7 @@
   - name: Ensure hello.war is downloaded
     fetch:
       src: /home/boxfuse/target/hello-1.0.war
-      dest: /tmp/hello.war
+      dest: /tmp
 
 - name: deploy application
   hosts: web
@@ -41,7 +41,7 @@
 
     - name: Ensure hello.war is uploaded
       copy:
-        src: /tmp/hello.war/52.58.135.180/home/boxfuse/target/hello.war
+        src: /tmp/52.58.135.180/home/boxfuse/target/hello-1.0.war
         dest: /var/lib/tomcat8/webapps/hello.war
 
     - name: Ensure tomcat8 service is restarted
