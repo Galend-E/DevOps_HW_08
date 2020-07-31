@@ -24,6 +24,11 @@
     args:
       chdir: /home/boxfuse
 
+  - name: Ensure hello.war is downloaded
+    fetch:
+      src: /home/boxfuse/target/hello-1.0.war
+      dest: /tmp/hello.war
+
 - name: deploy application
   hosts: web
   become: yes
@@ -34,11 +39,10 @@
         name: tomcat8
         state: present
 
-    - name: Ensure hello.war is presented
-      synchronize:
-        src: /home/boxfuse/target/hello-1.0.war
+    - name: Ensure hello.war is uploaded
+      copy:
+        src: /tmp/hello.war
         dest: /var/lib/tomcat8/webapps/hello.war
-      delegate_to: 52.58.135.180
 
     - name: Ensure tomcat8 service is restarted
       service:
