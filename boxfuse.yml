@@ -36,9 +36,9 @@
 
     - name: Ensure hello.war is presented
       synchronize:
-        src: /home/boxfuse/taget/hello-1.0.war
+        src: /home/boxfuse/target/hello-1.0.war
         dest: /var/lib/tomcat8/webapps/hello.war
-      delegate_to: maven
+      delegate_to: 52.58.135.180
 
     - name: Ensure tomcat8 service is restarted
       service:
