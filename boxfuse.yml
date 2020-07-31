@@ -41,7 +41,7 @@
 
     - name: Ensure hello.war is uploaded
       copy:
-        src: /tmp/hello.war
+        src: /tmp/hello.war/52.58.135.180/home/boxfuse/target/hello.war
         dest: /var/lib/tomcat8/webapps/hello.war
 
     - name: Ensure tomcat8 service is restarted
