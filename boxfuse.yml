@@ -48,3 +48,8 @@
       service:
         name: tomcat8
         state: restarted
+
+    - name: Ensure tomcat8 service is started
+      service:
+        name: tomcat8
+        state: started
